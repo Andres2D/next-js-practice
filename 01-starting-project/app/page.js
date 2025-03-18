@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Header from '@/components/header';
 
 // @ refers to the root path with this configuration
-// in jsonconfig.json
+// in jsconfig.json
 // {
 //   "compilerOptions": {
 //     "paths": {
