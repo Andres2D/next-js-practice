@@ -1,5 +1,15 @@
 import Link from 'next/link';
-import Header from './header';
+import Header from '@/components/header';
+
+// @ refers to the root path with this configuration
+// in jsonconfig.json
+// {
+//   "compilerOptions": {
+//     "paths": {
+//       "@/*": ["./*"]
+//     }
+//   }
+// }
 
 export default function Home() {
   return (
