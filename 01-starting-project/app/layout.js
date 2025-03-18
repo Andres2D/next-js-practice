@@ -1,5 +1,6 @@
 import './globals.css'
 
+// reserved name to add metadata
 export const metadata = {
   title: 'NextJS Course App',
   description: 'Your first NextJS app!',
