@@ -5,6 +5,6 @@ const db = sql('meals.db');
 export  const getMeals = async() => {
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
-  throw new Error('Loading Meals failed');
+  // throw new Error('Loading Meals failed');
   return db.prepare('SELECT * FROM meals').all();
 };
