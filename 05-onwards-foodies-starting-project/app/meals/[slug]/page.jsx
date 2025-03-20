@@ -1,9 +1,16 @@
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import { getMeal } from '../../../lib/meals';
 import styles from './page.module.css';
 
 export default function Meal({params}) {
   const meal = getMeal(params.slug);
+
+  if(!meal) {
+    // will show the closest not found or error page
+    notFound();
+  }
+
   meal.instructions = meal.instructions.replace(/\n/g, '<br />');
 
   return (
