@@ -8,3 +8,8 @@ export  const getMeals = async() => {
   // throw new Error('Loading Meals failed');
   return db.prepare('SELECT * FROM meals').all();
 };
+
+export const getMeal = (slug) => {
+  // This way protects you from sql injections
+  return db.prepare('SELECT * FROM meals WHERE slug = ? ').get(slug);
+}
