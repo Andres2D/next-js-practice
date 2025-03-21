@@ -4,11 +4,11 @@ import { redirect } from "next/navigation";
 import { saveMeal } from "./meals";
 
 const isInvalidText = (text) => {
-  return !text.title || text.title.trim() === '';
+  return !text || text.trim() === '';
 }
 
 // server action. only executes in a server
-export const shareMeal = async(formData) => {
+export const shareMeal = async(prevState, formData) => {
   const meal = {
     title: formData.get('title'),
     summary: formData.get('summary'),
@@ -27,7 +27,11 @@ export const shareMeal = async(formData) => {
     !meal.creator_email.includes('@') ||
     !meal.image || meal.image.size === 0
   ) {
-    throw new Error('Invalid input');
+    console.log(meal);
+    console.log('Inn');
+    return {
+      message: 'Invalid input.'
+    };
   }
     
 
