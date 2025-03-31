@@ -7,22 +7,22 @@ import {
 } from '@/lib/news';
 import Link from 'next/link';
 
-export default function FilteredNewsPage({params}) {
+export default async function FilteredNewsPage({params}) {
   const filter = params.filter;
   // console.log(filter);
   const selectedYear = filter?.[0];
   const selectedMonth = filter?.[1];
 
   let news;
-  let links = getAvailableNewsYears();
+  let links = await getAvailableNewsYears();
 
   if(selectedYear && !selectedMonth) {
-    news = getNewsForYear(selectedYear);
+    news = await getNewsForYear(selectedYear);
     links = getAvailableNewsMonths(selectedYear);
   }
 
   if(selectedYear && selectedMonth) {
-    news = getNewsForYearAndMonth(selectedYear, selectedMonth);
+    news = await getNewsForYearAndMonth(selectedYear, selectedMonth);
     links = [];
   }
 
@@ -32,9 +32,11 @@ export default function FilteredNewsPage({params}) {
     newsContent = <NewsList news={news} />
   }
 
+  const availableYears = await getAvailableNewsYears()
+
   if(
-      selectedYear && !getAvailableNewsYears().includes(+selectedYear) ||
-      selectedMonth && !getAvailableNewsMonths(selectedYear).includes(+selectedMonth)
+      selectedYear && !availableYears.includes(selectedYear) ||
+      selectedMonth && !getAvailableNewsMonths(selectedYear).includes(selectedMonth)
     ) {
     throw new Error('Invalid filter');
   }
