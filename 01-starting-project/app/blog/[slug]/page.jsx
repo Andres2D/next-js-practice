@@ -1,5 +1,5 @@
 export default function BlogPost({ params }) {
-  console.log(params)
+  // console.log(params)
   return (
     <main>
       <h1>Blog post</h1>
