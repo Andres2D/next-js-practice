@@ -8,14 +8,14 @@ export default function NewMessagePage() {
     'use server';
 
     const message = formData.get('message');
-    // addMessage(message);
+    addMessage(message);
 
     // disable route cache on load new page: ,'layout' revalidate nested pages, 
                                            // 'page' no nested pages will be revalidated
     // revalidatePath('/messages');
 
     // no cache for request with this tag configuration
-    revalidateTag('msg');
+    // revalidateTag('msg');
 
     redirect('/messages');
   }
