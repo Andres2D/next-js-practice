@@ -8,7 +8,7 @@ import { getMessages } from '@/lib/messages';
 // Another way to configure cache with reserved var name
 // export const dynamic = 'force-dynamic'; // cache: 'no-store'
 
-export default function MessagesPage() {
+export default async function MessagesPage() {
 
   // No cache configuration option 1
   // const response = await fetch('http://localhost:8080/messages', {
@@ -32,7 +32,7 @@ export default function MessagesPage() {
   // });
 
 
-  const messages = getMessages();
+  const messages = await getMessages();
 
   // const messages = await response.json();
 
