@@ -15,7 +15,7 @@ export default function NewMessagePage() {
     // revalidatePath('/messages');
 
     // no cache for request with this tag configuration
-    // revalidateTag('msg');
+    revalidateTag('msg');
 
     redirect('/messages');
   }
