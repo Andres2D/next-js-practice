@@ -8,3 +8,7 @@ export const createUser = (email, password) => {
 
   return result.lastInsertRowid;
 }
+
+export const getUserByEmail = (email) => {
+  return db.prepare('SELECT * FROM users WHERE email = ?').get(email);
+}
