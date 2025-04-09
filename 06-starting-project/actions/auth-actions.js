@@ -71,3 +71,11 @@ export const login = async(_, formData) => {
   redirect('/training');
 
 }
+
+export const auth = async(mode, prevState, formData) => {
+  if(mode === 'login') {
+    return login(prevState, formData);
+  } else {
+    return signUp(prevState, formData);
+  }
+}
