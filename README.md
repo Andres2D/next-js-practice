@@ -6,6 +6,7 @@
 4. [Data Mutation](./04-starting-project/)
 5. [Caching - Server Actions](./05-onwards-foodies-starting-project/)
 6. [Authentication](./06-starting-project/)
+7. [File Based Routing (Pages router)](./07-old-starting-project/)
 
 Based on [Next.js 15 & React - The Complete Guide](https://www.udemy.com/course/nextjs-react-the-complete-guide)
 
